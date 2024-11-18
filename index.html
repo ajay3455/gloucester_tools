@@ -41,14 +41,36 @@
             align-items: center;
         }
 
-        /* Main Container */
-        .main-container {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
+        /* Navigation Bar */
+        nav {
             width: 100%;
-            max-width: 1200px;
-            padding: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .nav-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        nav .nav-links a:hover {
+            color: var(--yellow-color);
         }
 
         /* Title Section */
@@ -56,6 +78,7 @@
             text-align: center;
             width: 100%;
             margin-bottom: 15px;
+            padding-top: 20px; /* Adjust padding to compensate for nav bar */
         }
 
         .title-section h1 {
@@ -141,6 +164,16 @@
         .custom-button:hover {
             background-color: #f0f0f0;
             transform: translateY(-4px);
+        }
+
+        /* Main Container */
+        .main-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
         }
 
         /* Main Content */
@@ -254,10 +287,29 @@
             .main-content {
                 width: 100%;
             }
+
+            nav .nav-links {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav .nav-links a {
+                margin: 10px 0;
+            }
         }
     </style>
 </head>
 <body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-logo">Gloucester Security Hub</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="aboutme.html">About Me</a>
+        </div>
+    </nav>
 
     <!-- Title Section -->
     <div class="title-section">
@@ -290,12 +342,12 @@
                 </a>
                 <!-- Updated Parking Notice Button -->
                 <a href="https://ajay3455.github.io/unauthorized-parking-notice/" class="custom-button parking-notice">
-                    <img src="https://seeklogo.com/images/N/no-parking-logo-A200D6F6C0-seeklogo.com.png">
+                    <img src="https://seeklogo.com/images/N/no-parking-logo-A200D6F6C0-seeklogo.com.png" alt="No Parking Logo">
                     <span>Unauthorized Parking Notice</span>
                 </a>
                 <!-- New Exterior Parking Pass Generator Button -->
                 <a href="https://ajay3455.github.io/Parking-Pass-Valid/" class="custom-button exterior-parking-pass">
-                    <img src="https://inps.net/traffic/sites/default/files/stock-products/RB-53%28DECAL%29_Parking_Replacement_Decal_INPS-010-22.jpg">
+                    <img src="https://inps.net/traffic/sites/default/files/stock-products/RB-53%28DECAL%29_Parking_Replacement_Decal_INPS-010-22.jpg" alt="Parking Pass Logo">
                     <span>Exterior Parking Pass Generator</span>
                 </a>
             </div>
@@ -341,6 +393,6 @@
     <footer class="footer">
         Made by Ajaypreet Singh (<a href="https://www.ajaypreet.ca" target="_blank">www.ajaypreet.ca</a>) for more information about me.
     </footer>
-<a href="aboutme.html" style="color: white; text-decoration: none;">About Me</a>
+
 </body>
 </html>
