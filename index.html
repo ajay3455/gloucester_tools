@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gloucester Security Hub</title>
+    <meta name="description" content="A collection of tools and links for security guards.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Gloucester Security Hub">
+    <meta property="og:description" content="A collection of tools and links for security guards.">
+    <meta property="og:image" content="https://i.imgur.com/mdjkqvk.png">
+    <meta property="og:url" content="https://www.ajaypreet.com/">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://i.imgur.com/mdjkqvk.png" type="image/png">
+
+    <!-- Styles -->
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary-color: #34495e;
+            --secondary-color: #2c3e50;
+            --accent-color: #3498db;
+            --text-color: #333;
+            --yellow-color: #f1c40f;
+            --background-gradient: linear-gradient(135deg, #f0f4f7, #e6e9ed);
+            --footer-gradient: linear-gradient(135deg, #2c3e50, #34495e);
+        }
+
+        /* Global Styles */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--background-gradient);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Main Container */
+        .main-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+        }
+
+        /* Title Section */
+        .title-section {
+            text-align: center;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .title-section h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        .caution-box {
+            display: inline-block;
+            background-color: var(--yellow-color);
+            color: #333;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        .caution-box .caution-icon {
+            margin-right: 5px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px;
+            width: 28%;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .sidebar h2 {
+            color: #fff;
+            text-align: center;
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+
+        .sidebar img.logo {
+            width: 70px;
+            height: 70px;
+            display: block;
+            margin: 0 auto 15px auto;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .custom-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 15px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: var(--text-color);
+            background-color: #ffffff;
+            text-transform: capitalize;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            min-height: 60px;
+        }
+
+        .custom-button img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .custom-button span {
+            text-align: center;
+        }
+
+        .custom-button:hover {
+            background-color: #f0f0f0;
+            transform: translateY(-4px);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            width: 60%;
+        }
+
+        .main-content h2 {
+            text-align: center;
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .link-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 480px;
+        }
+
+        .link-button {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: var(--text-color);
+            background-color: #ffffff;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .link-button:hover {
+            background-color: #f0f0f0;
+            transform: translateY(-3px);
+        }
+
+        .link-button img {
+            width: 35px;
+            height: 35px;
+            margin-right: 8px;
+        }
+
+        /* New Important Button Styling */
+        .important-button {
+            background-color: #f39c12; /* Eye-catching orange color */
+            color: white;
+            animation: bounce 2s infinite;
+            position: relative;
+        }
+
+        .important-button:hover {
+            background-color: #e67e22; /* Slightly darker on hover */
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Footer */
+        footer.footer {
+            text-align: center;
+            padding: 20px;
+            background: var(--footer-gradient);
+            color: white;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            width: 100%;
+        }
+
+        footer.footer a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        footer.footer a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Responsive Layout */
+        @media screen and (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .sidebar {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .main-content {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Title Section -->
+    <div class="title-section">
+        <h1>Welcome to the Gloucester Security Hub</h1>
+        <div class="caution-box">
+            <span class="caution-icon">⚠️</span>
+            If you are looking for more details on Ajaypreet Singh, kindly go to the <a href="https://www.ajaypreet.ca" target="_blank">www.ajaypreet.ca</a>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-container">
+
+        <!-- Sidebar Section for Printing Hub -->
+        <aside class="sidebar">
+            <h2>Printing Hub</h2>
+            <img src="https://i.imgur.com/mdjkqvk.png" alt="Printing Hub Logo" class="logo">
+            <div class="button-container">
+                <a href="https://ajay3455.github.io/notes/" class="custom-button sticky-notes">
+                    <img src="https://i.imgur.com/cZXg3Pn.png" alt="Sticky Notes Logo">
+                    <span>Sticky Notes</span>
+                </a>
+                <a href="https://ajay3455.github.io/suite-entry-notice-maker/" class="custom-button suite-notice">
+                    <img src="https://i.imgur.com/7O6EOHU.png" alt="Suite Entry Desk Logo">
+                    <span>Suite Entry Notice (Front Desk)</span>
+                </a>
+                <a href="https://ajay3455.github.io/suite-entry-notice-office-v3/" class="custom-button office-notice">
+                    <img src="https://i.imgur.com/YjfoKnr.png" alt="Suite Door Office Logo">
+                    <span>Suite Entry Notice (Office Printer)</span>
+                </a>
+                <!-- Updated Parking Notice Button -->
+                <a href="https://ajay3455.github.io/unauthorized-parking-notice/" class="custom-button parking-notice">
+                    <img src="https://seeklogo.com/images/N/no-parking-logo-A200D6F6C0-seeklogo.com.png">
+                    <span>Unauthorized Parking Notice</span>
+                </a>
+                <!-- New Exterior Parking Pass Generator Button -->
+                <a href="https://ajay3455.github.io/Parking-Pass-Valid/" class="custom-button exterior-parking-pass">
+                    <img src="https://inps.net/traffic/sites/default/files/stock-products/RB-53%28DECAL%29_Parking_Replacement_Decal_INPS-010-22.jpg">
+                    <span>Exterior Parking Pass Generator</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content Section for Guard Links -->
+        <main class="main-content">
+            <h2>Guard Links</h2>
+            <div class="link-container">
+                <!-- Concierge Plus Button (existing) -->
+                <a href="https://gloucesteronyonge.conciergeplus.com/" class="link-button concierge" target="_blank">
+                    <img src="https://i.imgur.com/bvNiu43.png" alt="Concierge Plus Logo">
+                    Concierge Plus
+                </a>
+                <!-- New Service Calendar Button -->
+                <a href="https://teamup.com/c/z74t22/gloucester-on-yonge" class="link-button important-button" target="_blank">
+                    <img src="https://i.imgur.com/kN11Ey5.png" alt="Service Calendar">
+                    Service Calendar
+                </a>
+                <!-- Existing Buttons -->
+                <a href="https://spikenow.com/web/" class="link-button spike" target="_blank">
+                    <img src="https://i.imgur.com/6W1JgS9.png" alt="Spike Logo">
+                    Spike (Email)
+                </a>
+                <a href="https://app.connecteam.com/index.html#/index/dashboard/dashboard" class="link-button connecteam" target="_blank">
+                    <img src="https://i.imgur.com/dSi85T9.jpeg" alt="Connecteam Logo">
+                    Connecteam
+                </a>
+                <a href="https://regalsecurityemployeeportal.cdn.thefmcloud.com/" class="link-button regal" target="_blank">
+                    <img src="https://i.imgur.com/xCxLde3.png" alt="Regal Security Logo">
+                    Regal Security Portal
+                </a>
+                <a href="https://lockers.snailecloud.com/" class="link-button snaile" target="_blank">
+                    <img src="https://i.imgur.com/Rvef3GN.png" alt="Snaile Parcel Logo">
+                    Snaile Parcel Machine
+                </a>
+            </div>
+        </main>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        Made by Ajaypreet Singh (<a href="https://www.ajaypreet.ca" target="_blank">www.ajaypreet.ca</a>) for more information about me.
+    </footer>
+
+</body>
+</html>
