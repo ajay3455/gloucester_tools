@@ -1,0 +1,438 @@
+<html><head><base href="https://sites.google.com/"><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Secure Access Portal</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.cyberpunk-grid {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background-image: 
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    transform: perspective(500px) rotateX(60deg);
+    animation: grid-animation 20s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes grid-animation {
+    0% { transform: perspective(500px) rotateX(60deg) translateY(0); }
+    100% { transform: perspective(500px) rotateX(60deg) translateY(50px); }
+}
+
+.login-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    padding: 3.5rem 2.5rem;
+    border-radius: 25px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 420px;
+    position: relative;
+    z-index: 1;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transform: translateY(0);
+    transition: all 0.3s ease;
+}
+
+.login-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 45px rgba(0,0,0,0.3);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 2.8rem;
+}
+
+.lock-icon-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 1.5rem;
+}
+
+.lock-icon {
+    width: 100%;
+    height: 100%;
+    fill: white;
+    filter: drop-shadow(0 0 10px rgba(255,255,255,0.5));
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(5deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.glow-effect {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+h1 {
+    color: white;
+    font-size: 2.2rem;
+    margin-bottom: 0.8rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.input-group {
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 1.2rem;
+    padding-left: 3rem;
+    background: rgba(255, 255, 255, 0.12);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    color: white;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.input-group i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.2rem;
+}
+
+.input-group input:focus {
+    border-color: rgba(255, 255, 255, 0.6);
+    outline: none;
+    background: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 0 20px rgba(255,255,255,0.1);
+}
+
+.input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.password-strength {
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.strength-meter {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, #ff0000, #ffff00, #00ff00);
+    transition: width 0.3s ease;
+}
+
+.btn {
+    width: 100%;
+    padding: 1.2rem;
+    background: linear-gradient(45deg, #00b4db, #0083b0);
+    border: none;
+    border-radius: 15px;
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.btn:hover:before {
+    left: 100%;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.links {
+    margin-top: 2.5rem;
+    text-align: center;
+}
+
+.links a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.links a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background: white;
+    transition: width 0.3s ease;
+}
+
+.links a:hover:after {
+    width: 100%;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.modal-content {
+    background: rgba(255, 255, 255, 0.98);
+    padding: 2.5rem;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 450px;
+    transform: scale(0.7);
+    animation: modalOpen 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes modalOpen {
+    to {
+        transform: scale(1);
+    }
+}
+
+.modal-btn {
+    margin-top: 1.5rem;
+    padding: 1rem 2rem;
+    background: linear-gradient(45deg, #00b4db, #0083b0);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.modal-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.shake {
+    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes shake {
+    10%, 90% { transform: translate3d(-1px, 0, 0); }
+    20%, 80% { transform: translate3d(2px, 0, 0); }
+    30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+    40%, 60% { transform: translate3d(4px, 0, 0); }
+}
+
+.success-animation {
+    animation: successPulse 0.5s ease-out;
+}
+
+@keyframes successPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+</style>
+</head>
+<body>
+
+<div class="cyberpunk-grid"></div>
+
+<div class="login-container">
+    <div class="login-header">
+        <div class="lock-icon-container">
+            <div class="glow-effect"></div>
+            <svg class="lock-icon" viewBox="0 0 24 24">
+                <path d="M12 1C8.676 1 6 3.676 6 7v2H4v14h16V9h-2V7c0-3.324-2.676-6-6-6zm0 2c2.276 0 4 1.724 4 4v2H8V7c0-2.276 1.724-4 4-4z"/>
+            </svg>
+        </div>
+        <h1>Secure Access</h1>
+        <p class="subtitle">Enter your credentials to continue</p>
+    </div>
+    
+    <form id="loginForm" onsubmit="return validateLogin(event)">
+        <div class="input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="password" placeholder="Enter password" required>
+            <div class="password-strength">
+                <div class="strength-meter" id="strengthMeter"></div>
+            </div>
+        </div>
+        
+        <button type="submit" class="btn">
+            <span>Access Portal</span>
+        </button>
+    </form>
+    
+    <div class="links">
+        <a href="#" id="forgotPassword">Need Help? / Request Access</a>
+    </div>
+</div>
+
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <i class="fas fa-shield-alt" style="font-size: 3rem; color: #0083b0; margin-bottom: 1rem;"></i>
+        <h2 style="margin-bottom: 1rem;">Security Notice</h2>
+        <p>Please contact the security supervisor for access credentials. For security reasons, access is strictly controlled.</p>
+        <button class="modal-btn" onclick="closeModal()">Understood</button>
+    </div>
+</div>
+
+<script>
+function validateLogin(event) {
+    event.preventDefault();
+    
+    const password = document.getElementById('password').value;
+    const loginForm = document.getElementById('loginForm');
+    const loginContainer = document.querySelector('.login-container');
+    
+    if (password === 'mike1234') {
+        loginContainer.classList.add('success-animation');
+        setTimeout(() => {
+            window.open('https://www.ajaypreet.com/password-protected-links', '_blank');
+        }, 500);
+    } else {
+        loginForm.classList.add('shake');
+        setTimeout(() => {
+            loginForm.classList.remove('shake');
+        }, 500);
+        alert('Access Denied. Please verify your credentials.');
+    }
+}
+
+document.getElementById('password').addEventListener('input', function(e) {
+    const strength = e.target.value.length * 10;
+    document.getElementById('strengthMeter').style.width = Math.min(strength, 100) + '%';
+});
+
+document.getElementById('forgotPassword').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('modal').style.display = 'flex';
+});
+
+function closeModal() {
+    const modal = document.getElementById('modal');
+    modal.style.opacity = '0';
+    setTimeout(() => {
+        modal.style.display = 'none';
+        modal.style.opacity = '1';
+    }, 300);
+}
+
+window.onclick = function(event) {
+    const modal = document.getElementById('modal');
+    if (event.target === modal) {
+        closeModal();
+    }
+}
+
+// Add hover effect to buttons
+document.querySelectorAll('.btn, .modal-btn').forEach(button => {
+    button.addEventListener('mouseover', function() {
+        this.style.transform = 'translateY(-2px)';
+    });
+    button.addEventListener('mouseout', function() {
+        this.style.transform = 'translateY(0)';
+    });
+});
+
+// Add typing animation to placeholder
+const passwordInput = document.getElementById('password');
+const placeholders = ['Enter password', 'Secure access only', 'Verify identity'];
+let currentPlaceholder = 0;
+
+setInterval(() => {
+    passwordInput.placeholder = placeholders[currentPlaceholder];
+    currentPlaceholder = (currentPlaceholder + 1) % placeholders.length;
+}, 3000);
+</script>
+
+</body></html>
