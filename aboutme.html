@@ -267,6 +267,37 @@
                 align-items: center;
             }
         }
+ /* Navigation Bar */
+        nav {
+            width: 100%;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .nav-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        nav .nav-links a:hover {
+            color: var(--yellow-color);
+        }
     </style>
 </head>
 <body>
